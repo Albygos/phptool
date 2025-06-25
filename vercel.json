@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/index.php": {
+      "runtime": "docker"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "api/index.php" }
+  ]
+}
