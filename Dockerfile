@@ -1,11 +1,14 @@
-# Use official PHP-Apache image
+# Use official PHP with Apache image
 FROM php:8.2-apache
 
-# Enable Apache mod_rewrite (optional, for pretty URLs)
+# Install mysqli extension
+RUN docker-php-ext-install mysqli
+
+# Enable mod_rewrite (optional)
 RUN a2enmod rewrite
 
-# Copy your PHP app into Apache's public directory
+# Copy your app to Apache's web root
 COPY . /var/www/html/
 
-# Set proper permissions (optional but recommended)
+# Set file permissions (optional)
 RUN chown -R www-data:www-data /var/www/html
